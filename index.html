@@ -323,6 +323,7 @@
       const fee    = b['费用'] || b['设施费'] || '';
       const notes  = b['大楼简介'] || '';
       const maps   = b['Google Maps'] || '';
+      const video  = b['视频库'] || '';
 
       return `
         <div class="card">
@@ -335,6 +336,7 @@
           ${notes ? `<div class="card-notes">${renderLinks(notes)}</div>` : ''}
           <div class="card-footer">
             ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
+            ${video ? `<a class="map-link" href="${video}" target="_blank" rel="noopener">🎬 视频库</a>` : ''}
           </div>
         </div>`;
     }).join('');
