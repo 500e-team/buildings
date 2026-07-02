@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>500E 大楼信息库</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      padding: 24px 20px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.4rem; font-weight: 600; letter-spacing: 0.5px; }
+    header p { font-size: 0.8rem; opacity: 0.6; margin-top: 6px; }
+
+    .controls {
+      background: white;
+      padding: 14px 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 180px;
+      padding: 9px 14px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .search-input:focus { border-color: #4a7fd4; }
+    .area-select {
+      padding: 9px 14px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      background: white;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .area-select:focus { border-color: #4a7fd4; }
+    .count { color: #aaa; font-size: 12px; white-space: nowrap; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+      padding: 18px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+      transition: box-shadow 0.15s;
+    }
+    .card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .card-name { font-size: 14px; font-weight: 600; flex: 1; line-height: 1.3; }
+    .tag-area {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-left: 8px;
+      margin-top: 1px;
+    }
+    .tag-NJ        { background: #e8f5e9; color: #2e7d32; }
+    .tag-Manhattan { background: #e3f2fd; color: #1565c0; }
+    .tag-LIC       { background: #fff3e0; color: #bf360c; }
+    .tag-Brooklyn  { background: #f3e5f5; color: #6a1b9a; }
+    .tag-Queens    { background: #fce4ec; color: #880e4f; }
+
+    .card-sub { font-size: 11px; color: #bbb; margin-bottom: 8px; }
+
+    .card-fee {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 7px;
+      background: #f8f8f8;
+      padding: 5px 8px;
+      border-radius: 5px;
+      line-height: 1.4;
+    }
+    .fee-label { color: #999; font-size: 11px; }
+
+    .card-notes { font-size: 12px; color: #666; line-height: 1.55; margin-bottom: 10px; }
+
+    .card-footer { display: flex; gap: 8px; flex-wrap: wrap; }
+    .map-link {
+      font-size: 11px;
+      color: #4a7fd4;
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid #c5d8f5;
+      border-radius: 5px;
+      background: #f0f5ff;
+      transition: all 0.15s;
+    }
+    .map-link:hover { background: #4a7fd4; color: white; border-color: #4a7fd4; }
+
+    .empty { text-align: center; padding: 60px 20px; color: #ccc; font-size: 14px; grid-column: 1/-1; }
+    .loading { text-align: center; padding: 60px; color: #bbb; font-size: 14px; grid-column: 1/-1; }
+
+    @media (max-width: 500px) {
+      .controls { padding: 10px 14px; }
+      .grid { padding: 12px; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>500E 大楼信息库</h1>
+  <p id="subtitle">数据实时来自 Google Sheets</p>
+</header>
+
+<div class="controls">
+  <input class="search-input" id="search" placeholder="搜索大楼 / 哥大 / JSQ / 设施..." autocomplete="off" />
+  <select class="area-select" id="areaFilter">
+    <option value="">全部区域</option>
+    <option value="NJ">NJ（新泽西）</option>
+    <option value="Manhattan">Manhattan（曼哈顿）</option>
+    <option value="LIC">LIC（长岛市）</option>
+    <option value="Brooklyn">Brooklyn（布鲁克林）</option>
+    <option value="Queens">Queens（皇后区）</option>
+  </select>
+  <span class="count" id="count"></span>
+</div>
+
+<div class="grid" id="grid">
+  <div class="loading">加载中...</div>
+</div>
+
+<script>
+  const SHEET_ID = '1Q2kfu2okYabIyErTQPij8qdCjCFS4Z3iEk9Mgo2umMk';
+  const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv`;
+
+  // 搜索关键词别名
+  const ALIASES = {
+    '哥大': 'columbia',
+    'columbia': 'columbia',
+    '曼哈顿': 'manhattan',
+    '布鲁克林': 'brooklyn',
+    '新泽西': 'nj',
+    '长岛': 'lic',
+    'uws': 'columbia',
+    '哥伦比亚': 'columbia',
+  };
+
+  let allBuildings = [];
+
+  function parseCSV(text) {
+    const lines = text.split('\n');
+    const headers = parseRow(lines[0]);
+    return lines.slice(1)
+      .filter(l => l.trim())
+      .map(line => {
+        const vals = parseRow(line);
+        const obj = {};
+        headers.forEach((h, i) => obj[h.trim()] = (vals[i] || '').trim());
+        return obj;
+      })
+      .filter(b => b['大楼名称']);
+  }
+
+  function parseRow(line) {
+    const result = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') {
+        if (inQ && line[i+1] === '"') { cur += '"'; i++; }
+        else inQ = !inQ;
+      } else if (c === ',' && !inQ) {
+        result.push(cur); cur = '';
+      } else {
+        cur += c;
+      }
+    }
+    result.push(cur);
+    return result;
+  }
+
+  function resolveQuery(raw) {
+    const lower = raw.toLowerCase();
+    return ALIASES[lower] || lower;
+  }
+
+  function matchSearch(b, q) {
+    if (!q) return true;
+    const hay = [b['大楼名称'], b['区域'], b['详细位置'], b['大楼简介'], b['设施费']]
+      .join(' ').toLowerCase();
+    return hay.includes(q);
+  }
+
+  function filter() {
+    const rawQ = document.getElementById('search').value.trim();
+    const area = document.getElementById('areaFilter').value;
+    const q = resolveQuery(rawQ);
+
+    const result = allBuildings.filter(b => {
+      if (area && b['区域'] !== area) return false;
+      return matchSearch(b, q);
+    });
+
+    renderGrid(result);
+  }
+
+  function renderGrid(list) {
+    const grid = document.getElementById('grid');
+    document.getElementById('count').textContent = `${list.length} 棟`;
+
+    if (list.length === 0) {
+      grid.innerHTML = '<div class="empty">没有找到符合条件的大楼</div>';
+      return;
+    }
+
+    grid.innerHTML = list.map(b => {
+      const area   = b['区域'] || '';
+      const name   = b['大楼名称'] || '';
+      const sub    = b['详细位置'] || '';
+      const fee    = b['设施费'] || '';
+      const notes  = b['大楼简介'] || '';
+      const maps   = b['Google Maps'] || '';
+
+      return `
+        <div class="card">
+          <div class="card-header">
+            <div class="card-name">${esc(name)}</div>
+            <span class="tag-area tag-${area}">${area}</span>
+          </div>
+          ${sub ? `<div class="card-sub">${esc(sub)}</div>` : ''}
+          ${fee ? `<div class="card-fee"><span class="fee-label">设施费 </span>${esc(fee)}</div>` : ''}
+          ${notes ? `<div class="card-notes">${esc(notes)}</div>` : ''}
+          <div class="card-footer">
+            ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  async function load() {
+    try {
+      const resp = await fetch(CSV_URL);
+      if (!resp.ok) throw new Error();
+      const text = await resp.text();
+      allBuildings = parseCSV(text);
+      document.getElementById('subtitle').textContent =
+        `共 ${allBuildings.length} 棟大楼 · 数据实时来自 Google Sheets`;
+      renderGrid(allBuildings);
+    } catch (e) {
+      document.getElementById('grid').innerHTML =
+        '<div class="empty">⚠️ 数据加载失败<br><small>请确认 Google Sheet 已设置为「Anyone with the link can view」</small></div>';
+    }
+  }
+
+  document.getElementById('search').addEventListener('input', filter);
+  document.getElementById('areaFilter').addEventListener('change', filter);
+
+  load();
+</script>
+</body>
+</html>
