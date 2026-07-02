@@ -229,35 +229,55 @@
   let allBuildings = [];
 
   function parseCSV(text) {
-    const lines = text.split('\n');
-    const headers = parseRow(lines[0]);
-    return lines.slice(1)
-      .filter(l => l.trim())
-      .map(line => {
-        const vals = parseRow(line);
-        const obj = {};
-        headers.forEach((h, i) => obj[h.trim()] = (vals[i] || '').trim());
-        return obj;
-      })
-      .filter(b => b['大楼名称']);
-  }
+    const records = [];
+    let i = 0;
+    const n = text.length;
 
-  function parseRow(line) {
-    const result = [];
-    let cur = '', inQ = false;
-    for (let i = 0; i < line.length; i++) {
-      const c = line[i];
-      if (c === '"') {
-        if (inQ && line[i+1] === '"') { cur += '"'; i++; }
-        else inQ = !inQ;
-      } else if (c === ',' && !inQ) {
-        result.push(cur); cur = '';
+    function parseField() {
+      if (i < n && text[i] === '"') {
+        i++;
+        let val = '';
+        while (i < n) {
+          if (text[i] === '"') {
+            i++;
+            if (i < n && text[i] === '"') { val += '"'; i++; }
+            else break;
+          } else {
+            val += text[i++];
+          }
+        }
+        return val;
       } else {
-        cur += c;
+        let val = '';
+        while (i < n && text[i] !== ',' && text[i] !== '\n' && text[i] !== '\r') {
+          val += text[i++];
+        }
+        return val;
       }
     }
-    result.push(cur);
-    return result;
+
+    function parseRecord() {
+      const fields = [];
+      while (i < n) {
+        fields.push(parseField());
+        if (i < n && text[i] === ',') { i++; }
+        else { if (i < n && text[i] === '\r') i++; if (i < n && text[i] === '\n') i++; break; }
+      }
+      return fields;
+    }
+
+    while (i < n) {
+      const rec = parseRecord();
+      if (rec.some(f => f.trim())) records.push(rec);
+    }
+
+    if (!records.length) return [];
+    const headers = records[0];
+    return records.slice(1).map(vals => {
+      const obj = {};
+      headers.forEach((h, idx) => obj[h.trim()] = (vals[idx] || '').trim());
+      return obj;
+    }).filter(b => b['大楼名称']);
   }
 
   function resolveQuery(raw) {
