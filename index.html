@@ -330,7 +330,7 @@
           </div>
           ${sub ? `<div class="card-sub">${esc(sub)}</div>` : ''}
           ${fee ? `<div class="card-fee"><span class="fee-label">设施费 </span>${esc(fee)}</div>` : ''}
-          ${notes ? `<div class="card-notes">${esc(notes)}</div>` : ''}
+          ${notes ? `<div class="card-notes">${esc(notes).replace(/\n/g, '<br>')}</div>` : ''}
           <div class="card-footer">
             ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
           </div>
