@@ -154,7 +154,63 @@
   <div class="loading">加载中...</div>
 </div>
 
+  <style>
+    #gate {
+      position: fixed; inset: 0; background: #1a1a2e;
+      display: flex; align-items: center; justify-content: center; z-index: 999;
+    }
+    #gate-box {
+      background: white; border-radius: 14px; padding: 36px 32px;
+      text-align: center; width: 300px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    #gate-box h2 { font-size: 1.1rem; margin-bottom: 6px; color: #1a1a2e; }
+    #gate-box p { font-size: 12px; color: #aaa; margin-bottom: 20px; }
+    #pw-input {
+      width: 100%; padding: 10px 14px; border: 1.5px solid #e0e0e0;
+      border-radius: 8px; font-size: 15px; outline: none; margin-bottom: 12px;
+      text-align: center; letter-spacing: 2px;
+    }
+    #pw-input:focus { border-color: #4a7fd4; }
+    #pw-btn {
+      width: 100%; padding: 10px; background: #1a1a2e; color: white;
+      border: none; border-radius: 8px; font-size: 14px; cursor: pointer;
+    }
+    #pw-btn:hover { background: #2a2a4e; }
+    #pw-error { color: #e53935; font-size: 12px; margin-top: 8px; display: none; }
+  </style>
+
+  <div id="gate">
+    <div id="gate-box">
+      <h2>500E 大楼信息库</h2>
+      <p>内部使用，请输入密码</p>
+      <input id="pw-input" type="password" placeholder="密码" autocomplete="off" />
+      <button id="pw-btn">进入</button>
+      <div id="pw-error">密码错误，请重试</div>
+    </div>
+  </div>
+
 <script>
+  (function() {
+    const PASSWORD = '500e2026';
+    const gate = document.getElementById('gate');
+    const input = document.getElementById('pw-input');
+    const btn = document.getElementById('pw-btn');
+    const err = document.getElementById('pw-error');
+    if (sessionStorage.getItem('500e_auth') === '1') gate.style.display = 'none';
+    function tryLogin() {
+      if (input.value === PASSWORD) {
+        sessionStorage.setItem('500e_auth', '1');
+        gate.style.display = 'none';
+      } else {
+        err.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    }
+    btn.addEventListener('click', tryLogin);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+  })();
+
   const SHEET_ID = '1Q2kfu2okYabIyErTQPij8qdCjCFS4Z3iEk9Mgo2umMk';
   const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv`;
 
