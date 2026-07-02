@@ -324,6 +324,7 @@
       const notes  = b['大楼简介'] || '';
       const maps   = b['Google Maps'] || '';
       const video  = b['视频库'] || '';
+      const website = b['官网'] || '';
 
       return `
         <div class="card">
@@ -337,6 +338,7 @@
           <div class="card-footer">
             ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
             ${video ? `<a class="map-link" href="${video}" target="_blank" rel="noopener">🎬 视频库</a>` : ''}
+            ${website ? `<a class="map-link" href="${website}" target="_blank" rel="noopener">🌐 官网</a>` : ''}
           </div>
         </div>`;
     }).join('');
