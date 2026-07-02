@@ -102,7 +102,8 @@
       background: #f8f8f8;
       padding: 5px 8px;
       border-radius: 5px;
-      line-height: 1.4;
+      line-height: 1.5;
+      word-break: break-word;
     }
     .fee-label { color: #999; font-size: 11px; }
 
@@ -330,7 +331,7 @@
             <span class="tag-area tag-${area}">${area}</span>
           </div>
           ${sub ? `<div class="card-sub">${esc(sub)}</div>` : ''}
-          ${fee ? `<div class="card-fee"><span class="fee-label">费用 </span>${esc(fee)}</div>` : ''}
+          ${fee ? `<div class="card-fee"><span class="fee-label">费用 </span>${esc(fee).replace(/\n/g,'<br>')}</div>` : ''}
           ${notes ? `<div class="card-notes">${esc(notes).replace(/\n/g, '<br>')}</div>` : ''}
           <div class="card-footer">
             ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
