@@ -289,7 +289,7 @@
 
   function matchSearch(b, q) {
     if (!q) return true;
-    const hay = [b['大楼名称'], b['区域'], b['详细位置'], b['大楼简介'], b['设施费']]
+    const hay = [b['大楼名称'], b['区域'], b['详细位置'], b['大楼简介'], b['费用'] || b['设施费']]
       .join(' ').toLowerCase();
     return hay.includes(q);
   }
@@ -320,7 +320,7 @@
       const area   = b['区域'] || '';
       const name   = b['大楼名称'] || '';
       const sub    = b['详细位置'] || '';
-      const fee    = b['设施费'] || '';
+      const fee    = b['费用'] || b['设施费'] || '';
       const notes  = b['大楼简介'] || '';
       const maps   = b['Google Maps'] || '';
 
