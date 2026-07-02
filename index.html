@@ -331,8 +331,8 @@
             <span class="tag-area tag-${area}">${area}</span>
           </div>
           ${sub ? `<div class="card-sub">${esc(sub)}</div>` : ''}
-          ${fee ? `<div class="card-fee"><span class="fee-label">费用 </span>${esc(fee).replace(/\n/g,'<br>')}</div>` : ''}
-          ${notes ? `<div class="card-notes">${esc(notes).replace(/\n/g, '<br>')}</div>` : ''}
+          ${fee ? `<div class="card-fee"><span class="fee-label">费用 </span>${renderLinks(fee)}</div>` : ''}
+          ${notes ? `<div class="card-notes">${renderLinks(notes)}</div>` : ''}
           <div class="card-footer">
             ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
           </div>
@@ -342,6 +342,12 @@
 
   function esc(s) {
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderLinks(s) {
+    return esc(s)
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#4a7fd4;text-decoration:none;font-weight:500;">$1 ↗</a>')
+      .replace(/\n/g, '<br>');
   }
 
   async function load() {
