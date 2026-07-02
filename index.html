@@ -337,8 +337,8 @@
           ${notes ? `<div class="card-notes">${renderLinks(notes)}</div>` : ''}
           <div class="card-footer">
             ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
-            ${video ? renderButtons(video, '🎬 视频库') : ''}
-            ${website ? renderButtons(website, '🌐 官网') : ''}
+            ${video ? renderButtons(video, '🎬 视频库', '🎬') : ''}
+            ${website ? renderButtons(website, '🌐 官网', '🌐') : ''}
           </div>
         </div>`;
     }).join('');
@@ -354,10 +354,10 @@
       .replace(/\n/g, '<br>');
   }
 
-  function renderButtons(s, defaultLabel) {
+  function renderButtons(s, defaultLabel, emoji = '') {
     const matches = [...s.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g)];
     if (matches.length) {
-      return matches.map(m => `<a class="map-link" href="${m[2]}" target="_blank" rel="noopener">${esc(m[1])}</a>`).join('');
+      return matches.map(m => `<a class="map-link" href="${m[2]}" target="_blank" rel="noopener">${emoji ? emoji + ' ' : ''}${esc(m[1])}</a>`).join('');
     }
     if (s.startsWith('http')) {
       return `<a class="map-link" href="${s}" target="_blank" rel="noopener">${defaultLabel}</a>`;
