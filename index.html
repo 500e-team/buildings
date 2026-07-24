@@ -122,6 +122,8 @@
     }
     .map-link:hover { background: #4a7fd4; color: white; border-color: #4a7fd4; }
 
+    mark { background: #fff3a0; color: inherit; padding: 0 1px; border-radius: 2px; }
+
     .empty { text-align: center; padding: 60px 20px; color: #ccc; font-size: 14px; grid-column: 1/-1; }
     .loading { text-align: center; padding: 60px; color: #bbb; font-size: 14px; grid-column: 1/-1; }
 
@@ -304,10 +306,10 @@
       return matchSearch(b, q);
     });
 
-    renderGrid(result);
+    renderGrid(result, q);
   }
 
-  function renderGrid(list) {
+  function renderGrid(list, q = '') {
     const grid = document.getElementById('grid');
     document.getElementById('count').textContent = `${list.length} 棟`;
 
@@ -329,12 +331,12 @@
       return `
         <div class="card">
           <div class="card-header">
-            <div class="card-name">${esc(name)}</div>
+            <div class="card-name">${highlight(esc(name), q)}</div>
             <span class="tag-area tag-${area}">${area}</span>
           </div>
-          ${sub ? `<div class="card-sub">${esc(sub)}</div>` : ''}
-          ${fee ? `<div class="card-fee"><span class="fee-label">费用 </span>${renderLinks(fee)}</div>` : ''}
-          ${notes ? `<div class="card-notes">${renderLinks(notes)}</div>` : ''}
+          ${sub ? `<div class="card-sub">${highlight(esc(sub), q)}</div>` : ''}
+          ${fee ? `<div class="card-fee"><span class="fee-label">费用 </span>${renderLinks(fee, q)}</div>` : ''}
+          ${notes ? `<div class="card-notes">${renderLinks(notes, q)}</div>` : ''}
           <div class="card-footer">
             ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
             ${video ? renderButtons(video, '🎬 视频库', '🎬') : ''}
@@ -348,10 +350,33 @@
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  function renderLinks(s) {
-    return esc(s)
+  function escapeRegex(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  const HL_START = '♦HL♦', HL_END = '♦⁄HL♦';
+
+  function highlight(escapedStr, q) {
+    if (!q) return escapedStr;
+    const re = new RegExp(`(${escapeRegex(q)})`, 'gi');
+    return escapedStr
+      .replace(re, HL_START + '$1' + HL_END)
+      .split(HL_START).join('<mark>')
+      .split(HL_END).join('</mark>');
+  }
+
+  function renderLinks(s, q = '') {
+    let out = esc(s);
+    if (q) {
+      const re = new RegExp(`(${escapeRegex(q)})`, 'gi');
+      out = out.replace(re, HL_START + '$1' + HL_END);
+    }
+    out = out
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#4a7fd4;text-decoration:none;font-weight:500;">$1 ↗</a>')
-      .replace(/\n/g, '<br>');
+      .replace(/\n/g, '<br>')
+      .split(HL_START).join('<mark>')
+      .split(HL_END).join('</mark>');
+    return out;
   }
 
   function renderButtons(s, defaultLabel, emoji = '') {
