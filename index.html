@@ -17,6 +17,26 @@
     header h1 { font-size: 1.4rem; font-weight: 600; letter-spacing: 0.5px; }
     header p { font-size: 0.8rem; opacity: 0.6; margin-top: 6px; }
 
+    .tabs {
+      background: #16213e;
+      display: flex;
+      gap: 4px;
+      padding: 0 20px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 16px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .tab-btn:hover { color: rgba(255,255,255,0.85); }
+    .tab-btn.active { color: white; border-bottom-color: #4a7fd4; }
+
     .controls {
       background: white;
       padding: 14px 20px;
@@ -92,6 +112,7 @@
     .tag-LIC       { background: #fff3e0; color: #bf360c; }
     .tag-Brooklyn  { background: #f3e5f5; color: #6a1b9a; }
     .tag-Queens    { background: #fce4ec; color: #880e4f; }
+    .tag-category  { background: #ede7f6; color: #4527a0; }
 
     .card-sub { font-size: 11px; color: #bbb; margin-bottom: 8px; }
 
@@ -141,21 +162,42 @@
   <a href="https://docs.google.com/spreadsheets/d/17tZwagdGW5hQu2F-3lZirK0mDlu5sQkMRiP3JIrFyWA/edit?gid=147453173#gid=147453173" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;padding:6px 16px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.25);border-radius:20px;font-size:12px;text-decoration:none;letter-spacing:0.3px;">📊 Vectra 房源库存追踪</a>
 </header>
 
-<div class="controls">
-  <input class="search-input" id="search" placeholder="搜索大楼名称..." autocomplete="off" />
-  <select class="area-select" id="areaFilter">
-    <option value="">全部区域</option>
-    <option value="NJ">NJ（新泽西）</option>
-    <option value="Manhattan">Manhattan（曼哈顿）</option>
-    <option value="LIC">LIC（长岛市）</option>
-    <option value="Brooklyn">Brooklyn（布鲁克林）</option>
-    <option value="Queens">Queens（皇后区）</option>
-  </select>
-  <span class="count" id="count"></span>
+<nav class="tabs">
+  <button class="tab-btn active" data-view="buildings">大楼信息库</button>
+  <button class="tab-btn" data-view="info">资讯库</button>
+</nav>
+
+<div id="view-buildings">
+  <div class="controls">
+    <input class="search-input" id="search" placeholder="搜索大楼名称..." autocomplete="off" />
+    <select class="area-select" id="areaFilter">
+      <option value="">全部区域</option>
+      <option value="NJ">NJ（新泽西）</option>
+      <option value="Manhattan">Manhattan（曼哈顿）</option>
+      <option value="LIC">LIC（长岛市）</option>
+      <option value="Brooklyn">Brooklyn（布鲁克林）</option>
+      <option value="Queens">Queens（皇后区）</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="grid" id="grid">
+    <div class="loading">加载中...</div>
+  </div>
 </div>
 
-<div class="grid" id="grid">
-  <div class="loading">加载中...</div>
+<div id="view-info" style="display:none">
+  <div class="controls">
+    <input class="search-input" id="infoSearch" placeholder="搜索资讯..." autocomplete="off" />
+    <select class="area-select" id="infoCategoryFilter">
+      <option value="">全部分类</option>
+    </select>
+    <span class="count" id="infoCount"></span>
+  </div>
+
+  <div class="grid" id="infoGrid">
+    <div class="loading">加载中...</div>
+  </div>
 </div>
 
   <style>
@@ -232,7 +274,7 @@
 
   let allBuildings = [];
 
-  function parseCSV(text) {
+  function parseCSV(text, requiredField) {
     const records = [];
     let i = 0;
     const n = text.length;
@@ -281,7 +323,7 @@
       const obj = {};
       headers.forEach((h, idx) => obj[h.trim()] = (vals[idx] || '').trim());
       return obj;
-    }).filter(b => b['大楼名称']);
+    }).filter(b => b[requiredField]);
   }
 
   function resolveQuery(raw) {
@@ -395,7 +437,7 @@
       const resp = await fetch(CSV_URL);
       if (!resp.ok) throw new Error();
       const text = await resp.text();
-      allBuildings = parseCSV(text);
+      allBuildings = parseCSV(text, '大楼名称');
       document.getElementById('subtitle').textContent =
         `共 ${allBuildings.length} 棟大楼 · 数据实时来自 Google Sheets`;
       renderGrid(allBuildings);
@@ -409,6 +451,87 @@
   document.getElementById('areaFilter').addEventListener('change', filter);
 
   load();
+
+  // ---- 资讯库 ----
+  const INFO_SHEET_ID = '1ohOTxnK-xV4j_CkS9Ad9qWwVuGN5pqs9KrkBLURpYQ8';
+  const INFO_CSV_URL = `https://docs.google.com/spreadsheets/d/${INFO_SHEET_ID}/export?format=csv`;
+
+  let allInfo = [];
+  let infoLoaded = false;
+
+  function filterInfo() {
+    const rawQ = document.getElementById('infoSearch').value.trim();
+    const category = document.getElementById('infoCategoryFilter').value;
+    const q = rawQ.toLowerCase();
+
+    const result = allInfo.filter(item => {
+      if (category && item['分类'] !== category) return false;
+      if (!q) return true;
+      const hay = [item['分类'], item['标题'], item['内容']].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+
+    renderInfoGrid(result, q);
+  }
+
+  function renderInfoGrid(list, q = '') {
+    const grid = document.getElementById('infoGrid');
+    document.getElementById('infoCount').textContent = `${list.length} 條`;
+
+    if (list.length === 0) {
+      grid.innerHTML = '<div class="empty">没有找到符合条件的资讯</div>';
+      return;
+    }
+
+    grid.innerHTML = list.map(item => {
+      const category = item['分类'] || '';
+      const title    = item['标题'] || '';
+      const content  = item['内容'] || '';
+
+      return `
+        <div class="card">
+          <div class="card-header">
+            <div class="card-name">${highlight(esc(title), q)}</div>
+            ${category ? `<span class="tag-area tag-category">${esc(category)}</span>` : ''}
+          </div>
+          ${content ? `<div class="card-notes">${renderLinks(content, q)}</div>` : ''}
+        </div>`;
+    }).join('');
+  }
+
+  async function loadInfo() {
+    try {
+      const resp = await fetch(INFO_CSV_URL);
+      if (!resp.ok) throw new Error();
+      const text = await resp.text();
+      allInfo = parseCSV(text, '标题');
+
+      const categorySelect = document.getElementById('infoCategoryFilter');
+      const categories = [...new Set(allInfo.map(i => i['分类']).filter(Boolean))];
+      categorySelect.innerHTML = '<option value="">全部分类</option>' +
+        categories.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+
+      infoLoaded = true;
+      renderInfoGrid(allInfo);
+    } catch (e) {
+      document.getElementById('infoGrid').innerHTML =
+        '<div class="empty">⚠️ 数据加载失败<br><small>请确认 Google Sheet 已设置为「Anyone with the link can view」</small></div>';
+    }
+  }
+
+  document.getElementById('infoSearch').addEventListener('input', filterInfo);
+  document.getElementById('infoCategoryFilter').addEventListener('change', filterInfo);
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const view = btn.dataset.view;
+      document.getElementById('view-buildings').style.display = view === 'buildings' ? '' : 'none';
+      document.getElementById('view-info').style.display = view === 'info' ? '' : 'none';
+      if (view === 'info' && !infoLoaded) loadInfo();
+    });
+  });
 </script>
 </body>
 </html>
