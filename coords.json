@@ -1,0 +1,2144 @@
+{
+"Eagle Loft (Rockrose)": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"The Cove (Rockrose)": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Linc (Rockrose)": {
+"lat": 40.7486893,
+"lon": -73.9428017,
+"source": "geocoded",
+"display": "43-10 Crescent Street, 43rd Avenue, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Hayden (Rockrose)": {
+"lat": 40.7477147,
+"lon": -73.9424374,
+"source": "geocoded",
+"display": "Hayden LIC, 43-25, Hunter Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Jackson Park": {
+"lat": 40.7480478,
+"lon": -73.9384583,
+"source": "geocoded",
+"display": "Jackson Park, 28-10, Jackson Avenue, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"JSQ1 & 2 & 3 (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Urby JSQ": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Cmpnd: 28 Cottage": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Cmpnd: 26 Van Reipen": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Cmpnd: 9 Homestead": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Cmpnd: 626 Newark": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"MetroVue": {
+"lat": 40.7359882,
+"lon": -74.0687478,
+"source": "geocoded",
+"display": "MetroVue at Journal Square, 161, Van Wagenen Avenue, Indian Square, Marion, Journal Square, Jersey City, Hudson County, New Jersey, 07306, United States"
+},
+"425 Summit": {
+"lat": 40.7300418,
+"lon": -74.0618932,
+"source": "geocoded",
+"display": "Four Twenty Five Summit, 425, Summit Avenue, Hilltop, Bergen Square, Journal Square, Jersey City, Hudson County, New Jersey, 07306, United States"
+},
+"55 Orchard": {
+"lat": 40.7243484,
+"lon": -74.0671173,
+"source": "geocoded",
+"display": "Orchard, 55, Orchard Street, McGinley Square, Bergen Square, Journal Square, Jersey City, Hudson County, New Jersey, 07306, United States"
+},
+"Overlook Flat": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"3 Journal Square": {
+"lat": 40.7323956,
+"lon": -74.0629413,
+"source": "geocoded",
+"display": "Starbucks, 3, Journal Square Concourse, Indian Square, Bergen Square, Journal Square, Jersey City, Hudson County, New Jersey, 07306, United States"
+},
+"Leleo": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"The Journal 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"505 Summit 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Cmpnd: 43 Cottage 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"55 Jordan": {
+"lat": 40.7256022,
+"lon": -74.0659703,
+"source": "geocoded",
+"display": "55 Jordan, 55, Jordan Avenue, McGinley Square, Bergen Square, Journal Square, Jersey City, Hudson County, New Jersey, 07306, United States"
+},
+"The Greyson 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"351 Marin (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"485 Marin (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"235 Grand (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"18 Park (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"225 Grand (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Grove Pointe (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Bay 151 (KRE) 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Parkside West (NPR)": {
+"lat": 40.7303033,
+"lon": -74.033925,
+"source": "geocoded",
+"display": "Parkside West, 40, Newport Parkway, Newport, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Parkside East (NPR)": {
+"lat": 40.7297546,
+"lon": -74.033489,
+"source": "geocoded",
+"display": "Parkside East, 30, Newport Parkway, Newport, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Waterside Square North (NPR)": {
+"lat": 40.7286874,
+"lon": -74.0328202,
+"source": "geocoded",
+"display": "Waterside Square North, Holland Tunnel, Newport, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Waterside Square South (NPR)": {
+"lat": 40.7279406,
+"lon": -74.0325435,
+"source": "geocoded",
+"display": "Waterside Square South, River Drive South, Newport, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Riverside (NPR)": {
+"lat": 40.7437694,
+"lon": -74.043698,
+"source": "geocoded",
+"display": "Riverside Community Garden, Journal Square, Jersey City, Hudson County, New Jersey, United States"
+},
+"Atlantic (NPR)": {
+"lat": 40.7210513,
+"lon": -74.0398861,
+"source": "geocoded",
+"display": "Great Atlantic and Pacific Tea Company Warehouse, 150, Bay Street, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"East Hampton (NPR)": {
+"lat": 40.7276888,
+"lon": -74.0308947,
+"source": "geocoded",
+"display": "East Hampton Apartments, River Court, Newport, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Southampton (NPR)": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Pacific (NPR)": {
+"lat": 40.7210513,
+"lon": -74.0398861,
+"source": "geocoded",
+"display": "Great Atlantic and Pacific Tea Company Warehouse, 150, Bay Street, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Aquablu (NPR)": {
+"lat": 40.7299466,
+"lon": -74.031614,
+"source": "geocoded",
+"display": "Aquablu, River Drive, Newport, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Laguna (NPR)": {
+"lat": 40.7309561,
+"lon": -74.0313444,
+"source": "geocoded",
+"display": "Laguna, Hoboken Newport Walkway- Hudson River Waterfront Walkway, Newport, Jersey City, Hudson County, New Jersey, 07311, United States"
+},
+"Ellipse (NPR)": {
+"lat": 40.730881,
+"lon": -74.0300934,
+"source": "geocoded",
+"display": "Ellipse, 25, Park Lane South, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Beach (NPR)": {
+"lat": 40.6935486,
+"lon": -74.0671334,
+"source": "geocoded",
+"display": "Caven Point Beach, Communipaw, Jersey City, Hudson County, New Jersey, United States"
+},
+"Bisby (NPR)": {
+"lat": 40.7321927,
+"lon": -74.0321533,
+"source": "geocoded",
+"display": "Bisby at Newport, 30, Park Lane North, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"Hendrix": {
+"lat": 40.7205041,
+"lon": -74.0415216,
+"source": "geocoded",
+"display": "The Hendrix, 180, Morgan Street, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Haus 25": {
+"lat": 40.7215682,
+"lon": -74.047455,
+"source": "geocoded",
+"display": "Jersey City, Hudson County, New Jersey, United States"
+},
+"One Grove": {
+"lat": 40.7155517,
+"lon": -74.0453902,
+"source": "geocoded",
+"display": "One Grove, 215, Grove Street, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"BLVD Collection (401/425/475)": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Avalon Cove": {
+"lat": 40.7235414,
+"lon": -74.0352279,
+"source": "geocoded",
+"display": "Avalon Cove, 444, Jersey City, Hudson County, New Jersey, 07310, United States"
+},
+"The One": {
+"lat": 40.7215906,
+"lon": -74.0377457,
+"source": "geocoded",
+"display": "The One, Warren Street, Downtown Jersey City, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Vantage": {
+"lat": 40.7134066,
+"lon": -74.0442958,
+"source": "geocoded",
+"display": "Vantage, Saint Peter's Street, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Liberty Tower": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Sable (原Urby JC)": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"The Morgan": {
+"lat": 40.720528,
+"lon": -74.0406285,
+"source": "geocoded",
+"display": "The Morgan at Provost Square, Morgan Street, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Trump Bay (65 Bay St)": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Vyv": {
+"lat": 40.7242164,
+"lon": -74.0377994,
+"source": "geocoded",
+"display": "VYV North, 474, Warren Street, Newport, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Dvora 175": {
+"lat": 40.7292032,
+"lon": -74.0508041,
+"source": "geocoded",
+"display": "DVORA, 372, 9th Street, Hamilton Park, Journal Square, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Dvora Arthouse": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Dvora Hamilton House": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"The Pier Apartment": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Modera Loft": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"88 Regent": {
+"lat": 40.7156028,
+"lon": -74.0490213,
+"source": "geocoded",
+"display": "88 Regent Street, 88, Regent Street, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"The Lively": {
+"lat": 40.7193995,
+"lon": -74.0388999,
+"source": "geocoded",
+"display": "The Lively, 321, Warren Street, Downtown Jersey City, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Lenox": {
+"lat": 40.7146025,
+"lon": -74.0417329,
+"source": "geocoded",
+"display": "Lenox, 207, Sussex Street, Downtown Jersey City, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Quinn": {
+"lat": 40.7139095,
+"lon": -74.041592,
+"source": "geocoded",
+"display": "Quinn, 197, Van Vorst Street, Downtown Jersey City, Communipaw, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"70 Greene": {
+"lat": 40.7146707,
+"lon": -74.0357288,
+"source": "geocoded",
+"display": "70, Greene Street, Downtown Jersey City, Jersey City, Hudson County, New Jersey, 07302, United States"
+},
+"Atlas": {
+"lat": 40.710548,
+"lon": -74.1046982,
+"source": "geocoded",
+"display": "Atlas Court, Jersey City, Hudson County, New Jersey, 07305, United States"
+},
+"Everton": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"The Modern (100 & 800)": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Fiat House": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Twenty 50": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Hamilton Cove": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Windsor at Mariners": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Iconiq 777": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Urby Newark": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"The Hazel": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"3 Acres": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Hoboken Point": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Soho Loft": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Hudson House": {
+"lat": 40.6854668,
+"lon": -74.070635,
+"source": "geocoded",
+"display": "Hudson House, Chapel Avenue, Jersey City, Hudson County, New Jersey, 07305, United States"
+},
+"Wyldes": {
+"lat": 40.744,
+"lon": -74.1565,
+"source": "area_fallback",
+"display": "Harrison"
+},
+"Cobalt Loft": {
+"lat": 40.744,
+"lon": -74.1565,
+"source": "area_fallback",
+"display": "Harrison"
+},
+"Dey and Bergen": {
+"lat": 40.744,
+"lon": -74.1565,
+"source": "area_fallback",
+"display": "Harrison"
+},
+"Steel Works": {
+"lat": 40.7356108,
+"lon": -74.1544865,
+"source": "geocoded",
+"display": "Steel Works, 1200, Frank E. Rodgers Boulevard, Harrison, Hudson County, New Jersey, 07029, United States"
+},
+"Vermella Harrison": {
+"lat": 40.7364001,
+"lon": -74.1544921,
+"source": "geocoded",
+"display": "Vermella Harison, 1100, Frank E. Rodgers Boulevard, Harrison, Hudson County, New Jersey, 07029, United States"
+},
+"Harrison Urby": {
+"lat": 40.744,
+"lon": -74.1565,
+"source": "area_fallback",
+"display": "Harrison"
+},
+"One Harrison": {
+"lat": 41.0389178,
+"lon": -73.747579,
+"source": "geocoded",
+"display": "West Harrison, Town/Village of Harrison, Westchester County, New York, 10604, United States"
+},
+"Water Edge": {
+"lat": 40.744,
+"lon": -74.1565,
+"source": "area_fallback",
+"display": "Harrison"
+},
+"300 Somerset": {
+"lat": 40.740203,
+"lon": -74.157564,
+"source": "geocoded",
+"display": "300, Somerset Street, Harrison, Hudson County, New Jersey, 07029, United States"
+},
+"330 Angelo": {
+"lat": 40.7409374,
+"lon": -74.1571,
+"source": "geocoded",
+"display": "330, Angelo Cifelli Drive, Harrison, Hudson County, New Jersey, 07029, United States"
+},
+"The Eddy": {
+"lat": 40.744,
+"lon": -74.1565,
+"source": "area_fallback",
+"display": "Harrison"
+},
+"Hollingsworth": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Anagram Nomad": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Ritz Plaza": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Biltmore 有微信群": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"EOS": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Epic": {
+"lat": 40.7487328,
+"lon": -73.9901126,
+"source": "geocoded",
+"display": "The Epic, 125, West 31st Street, Chelsea District, Manhattan Community Board 5, Manhattan, New York County, New York, 10001, United States"
+},
+"Solari": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Eugene": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Dylan": {
+"lat": 40.7515851,
+"lon": -73.9791375,
+"source": "geocoded",
+"display": "Dylan Hotel, 52, East 41st Street, Midtown South, Manhattan Community Board 5, Manhattan, New York County, New York, 10017, United States"
+},
+"Oriana": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Beatrice": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Prism": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Continental": {
+"lat": 40.7602214,
+"lon": -73.9744253,
+"source": "geocoded",
+"display": "520 Madison Avenue, 520, Madison Avenue, Midtown East, Manhattan Community Board 5, Manhattan, New York County, New York, 10055, United States"
+},
+"The Capital": {
+"lat": 40.7538356,
+"lon": -73.9761648,
+"source": "geocoded",
+"display": "The Capital Grille, 200, Park Avenue, Midtown, Manhattan Community Board 5, Manhattan, New York County, New York, 10169, United States"
+},
+"Tower 31": {
+"lat": 40.7515177,
+"lon": -73.9815662,
+"source": "geocoded",
+"display": "Fifth Avenue Tower Urban Plaza, Midtown South, Manhattan Community Board 5, Manhattan, New York County, New York, 10110, United States"
+},
+"Herald Tower": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Ellery": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Magellan": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Hudson Crossing": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"One Union Square South": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Maverick 225 W 28th": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Ruby Chelsea": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Claridge's": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"EVGB": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Union Square Apartment": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Anagram Columbus Circle": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Tate": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Nathaniel": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"555 Ten 有微信群": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Lyra (Rockrose)": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"3 Eleven": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"606 W 30th": {
+"lat": 40.7492004,
+"lon": -73.9941825,
+"source": "geocoded",
+"display": "West 30th Street, Chelsea District, Manhattan Community Board 5, Manhattan, New York County, New York, 10001, United States"
+},
+"Midwest Court": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Sliver Tower": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Mima": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Landon": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Sky Moinian": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Mercedes House": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Victory": {
+"lat": 40.7565592,
+"lon": -73.9874525,
+"source": "geocoded",
+"display": "New Victory Theater, 209, West 42nd Street, Times Square, Manhattan Community Board 5, Manhattan, New York County, New York, 10036, United States"
+},
+"The Maybury": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Gemma Gramercy": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Max 606": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Eugene": {
+"lat": 40.7611047,
+"lon": -73.9857404,
+"source": "geocoded",
+"display": "Eugene O'Neill Theatre, 230, West 49th Street, Times Square, Manhattan Community Board 5, Manhattan, New York County, New York, 10019, United States"
+},
+"Hudson 36": {
+"lat": 40.7537348,
+"lon": -73.9937488,
+"source": "geocoded",
+"display": "Crowne Plaza HY36 Midtown Manhattan, 320, West 36th Street, Hudson Yards, Manhattan Community Board 4, Manhattan, New York County, New York, 10018, United States"
+},
+"Henry Hall": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Via 57": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"21 West Street": {
+"lat": 40.7523296,
+"lon": -73.9835703,
+"source": "geocoded",
+"display": "21, West 39th Street, Midtown, Manhattan Community Board 5, Manhattan, New York County, New York, 10018, United States"
+},
+"River Place": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Osakar Moinian": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Aro": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Gotham West": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Mantena Apartments": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Waterline Square": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"455 West 37th": {
+"lat": 40.7519452,
+"lon": -73.9869681,
+"source": "geocoded",
+"display": "West 37th Street, Midtown South, Manhattan Community Board 5, Manhattan, New York County, New York, 10120, United States"
+},
+"The Set": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"1 Hudson Yard": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"525 West 52nd": {
+"lat": 40.7614725,
+"lon": -73.9802644,
+"source": "geocoded",
+"display": "West 52nd Street, Theater District, Manhattan Community Board 5, Manhattan, New York County, New York, 10104, United States"
+},
+"Longacre House": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Ashley & Adyln": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Townsend": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"535 West 43": {
+"lat": 40.7571168,
+"lon": -73.9874199,
+"source": "geocoded",
+"display": "West 43rd Street, Times Square, Manhattan Community Board 5, Manhattan, New York County, New York, 10036, United States"
+},
+"Riverbank": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Ellington": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Emerald Green": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Kips Bay Court": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Stuytown": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Copper": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Summit": {
+"lat": 40.7528374,
+"lon": -73.9785218,
+"source": "geocoded",
+"display": "Summit One Vanderbilt, Vanderbilt Avenue, Midtown South, Manhattan Community Board 5, Manhattan, New York County, New York, 10178, United States"
+},
+"House 39": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Waterside Plaza": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Murray": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"685 1st Avenue": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"RiverEast by Stonehenge": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"The Cole by Stonehenge": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Stonehenge 61/63/65": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Riverwalk Heights": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Riverwalk Crossing": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Octagon": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+},
+"Manhattan Park": {
+"lat": 40.7643419,
+"lon": -73.9826989,
+"source": "geocoded",
+"display": "Residence Inn New York Manhattan/Central Park, 1717, Broadway, Midtown, Manhattan Community Board 5, Manhattan, New York County, New York, 10019, United States"
+},
+"OMS": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"8 Spruce": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"Pearl House": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"200 Water": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"Howell": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"70 Pine": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"180 Water": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"20 Broad": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"The Suffolk": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"19 Dutch": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"45 Wall (TFC)": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"63 Wall Street": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"100 Maiden Lane": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"55 Broad": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"SoMA": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"Pearl and Pine": {
+"lat": 40.7075,
+"lon": -74.0021,
+"source": "area_fallback",
+"display": "Manhattan Downtown"
+},
+"1QPS": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Tower 28": {
+"lat": 40.7495783,
+"lon": -73.9395712,
+"source": "geocoded",
+"display": "Tower 28, 42-12, 28th Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"27 on 27": {
+"lat": 40.7495421,
+"lon": -73.9401852,
+"source": "geocoded",
+"display": "27-03 42nd Road, 27-03, 42nd Road, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"SVEN": {
+"lat": 40.7508997,
+"lon": -73.9361464,
+"source": "geocoded",
+"display": "Sven Dog Park, 29-17, 41st Avenue, Long Island City, Queens, Queens County, New York, 11103, United States"
+},
+"Link": {
+"lat": 40.7449369,
+"lon": -73.9476245,
+"source": "geocoded",
+"display": "Link NYC, Jackson Avenue, Court Square, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"The Bold": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Italic": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Dutch House": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Icorss (公司独家)": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Orchard LIC": {
+"lat": 40.7476516,
+"lon": -73.938987,
+"source": "geocoded",
+"display": "The Orchard LIC, 42-06, Orchard Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"QLIC": {
+"lat": 40.751806,
+"lon": -73.9409651,
+"source": "geocoded",
+"display": "QLIC, 41-42, 24th Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"5 Pointz": {
+"lat": 40.7449071,
+"lon": -73.9456593,
+"source": "geocoded",
+"display": "5 Pointz, Jackson Avenue, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"One LIC": {
+"lat": 40.7469945,
+"lon": -73.9438654,
+"source": "geocoded",
+"display": "Citigroup Building, 25-01, Jackson Avenue, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"2222 Jackson Avenue": {
+"lat": 40.7451479,
+"lon": -73.9471168,
+"source": "geocoded",
+"display": "2222, Jackson Avenue, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Steel Haus": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Packard Square": {
+"lat": 40.7517392,
+"lon": -73.9400558,
+"source": "geocoded",
+"display": "Packard Square, Long Island City, Queens, Queens County, New York, United States"
+},
+"Alta LIC": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Ollie": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Arc": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"The Forge": {
+"lat": 40.7465046,
+"lon": -73.9411977,
+"source": "geocoded",
+"display": "The Forge, 44-28, Purves Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Rise LIC": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Watermark LIC": {
+"lat": 40.7468007,
+"lon": -73.941679,
+"source": "geocoded",
+"display": "Watermark, 27-19, 44th Drive, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Pearson Courtsquare": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Aurora 29-11 Queens Plaza": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Crescent Club": {
+"lat": 40.7516006,
+"lon": -73.9394381,
+"source": "geocoded",
+"display": "Crescent Club, 41-17, Crescent Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Luna LIC": {
+"lat": 40.7501348,
+"lon": -73.9406378,
+"source": "geocoded",
+"display": "Luna, 42-15, Crescent Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"The Delmar": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Bevel LIC": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"The Davis 45-57 Davis St": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Astor LIC": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"8 Court Square": {
+"lat": 40.7470782,
+"lon": -73.943181,
+"source": "geocoded",
+"display": "Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Halo LIC": {
+"lat": 40.7462363,
+"lon": -73.9404558,
+"source": "geocoded",
+"display": "Halo, 44-41, Purves Street, Court Square, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Terra 45-19 Davis St": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"The Northern": {
+"lat": 40.7516907,
+"lon": -73.9313236,
+"source": "geocoded",
+"display": "Materials for the Arts, 3300, Northern Boulevard, Queens, Queens County, New York, 11101, United States"
+},
+"Hearthstone": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"The Airel": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Lumen LIC": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"5203 Center Blvd (TFC)": {
+"lat": 40.7419765,
+"lon": -73.9595271,
+"source": "geocoded",
+"display": "5203 Center Boulevard, 5203, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"5241 Center Blvd (TFC)": {
+"lat": 40.7412339,
+"lon": -73.9603638,
+"source": "geocoded",
+"display": "5241 Center Boulevard, 5241, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"4540 Center Blvd (TFC)": {
+"lat": 40.7483501,
+"lon": -73.9570976,
+"source": "geocoded",
+"display": "Blend on the Water, 4540, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"4610 Center Blvd (TFC)": {
+"lat": 40.7472011,
+"lon": -73.9566542,
+"source": "geocoded",
+"display": "Maiella, 4610, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"4615 Center Blvd (TFC)": {
+"lat": 40.7471411,
+"lon": -73.9560426,
+"source": "geocoded",
+"display": "Sweetleaf, 4615, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"4545 Center Blvd (TFC)": {
+"lat": 40.7477112,
+"lon": -73.9563172,
+"source": "geocoded",
+"display": "Fado, 4545, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"4720 Center Blvd (TFC)": {
+"lat": 40.7460868,
+"lon": -73.9569862,
+"source": "geocoded",
+"display": "BLVD Wine Bar, 4720, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"2-20 Malt Drive (TFC)": {
+"lat": 40.7394773,
+"lon": -73.9585859,
+"source": "geocoded",
+"display": "2-20 Malt Drive, 2-20, Malt Drive, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"Gotham Point North": {
+"lat": 40.7393501,
+"lon": -73.9611899,
+"source": "geocoded",
+"display": "Gotham Point North Tower, 1-15, 57th Avenue, Hunters Point, Queens, Queens County, New York, 11109, United States"
+},
+"Gotham Point South": {
+"lat": 40.7385821,
+"lon": -73.9605658,
+"source": "geocoded",
+"display": "Gotham Point South Tower, 56-27, 2nd Street, Hunters Point, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"The Maximilian": {
+"lat": 40.7462442,
+"lon": -73.9551117,
+"source": "geocoded",
+"display": "The Maximilian, 5-11, 47th Avenue, Hunters Point, Long Island City, Queens, Queens County, New York, 11101, United States"
+},
+"Avalon Riverview North": {
+"lat": 40.7451072,
+"lon": -73.9572346,
+"source": "geocoded",
+"display": "The Avalon, 4-75, 48th Avenue, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"Avalon Riverview South": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"4705 Center Blvd": {
+"lat": 40.7456176,
+"lon": -73.9567972,
+"source": "geocoded",
+"display": "Skinny's Cantina, 4705, Center Boulevard, Hunters Point, Long Island City, Queens, Queens County, New York, 11109, United States"
+},
+"Jasper": {
+"lat": 40.7447,
+"lon": -73.9485,
+"source": "area_fallback",
+"display": "Long Island City"
+},
+"Yellowstone - Forest Hill": {
+"lat": 40.7282,
+"lon": -73.7949,
+"source": "area_fallback",
+"display": "Queens"
+},
+"The 88": {
+"lat": 40.5900257,
+"lon": -73.7964478,
+"source": "geocoded",
+"display": "Arverne By The Sea, Arverne, Queens, Queens County, New York, 12692, United States"
+},
+"Vida 52": {
+"lat": 40.7282,
+"lon": -73.7949,
+"source": "area_fallback",
+"display": "Queens"
+},
+"Vista 65": {
+"lat": 40.727933,
+"lon": -73.8575895,
+"source": "geocoded",
+"display": "Vista 65, 97-12, 65th Road, Rego Park, Queens, Queens County, New York, 11374, United States"
+},
+"Ever Garden": {
+"lat": 40.7130171,
+"lon": -73.8294303,
+"source": "geocoded",
+"display": "Ever Garden, Kew Gardens Road, Kew Gardens, Queens, Queens County, New York, 11418, United States"
+},
+"The Alexander": {
+"lat": 40.7282,
+"lon": -73.7949,
+"source": "area_fallback",
+"display": "Queens"
+},
+"Astoria West": {
+"lat": 40.7696029,
+"lon": -73.9336229,
+"source": "geocoded",
+"display": "Astoria West, 11-02, 30th Drive, Astoria, Queens, Queens County, New York, 11102, United States"
+},
+"Elm West & East": {
+"lat": 40.7282,
+"lon": -73.7949,
+"source": "area_fallback",
+"display": "Queens"
+},
+"The Monarch": {
+"lat": 40.7282,
+"lon": -73.7949,
+"source": "area_fallback",
+"display": "Queens"
+},
+"BK Point": {
+"lat": 40.7255147,
+"lon": -73.9599878,
+"source": "geocoded",
+"display": "Monitor Point, Brooklyn, Kings County, New York, 11222, United States"
+},
+"BK Crossing": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"Rocklyn": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"The Everly": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"505 State": {
+"lat": 40.6856736,
+"lon": -73.9792726,
+"source": "geocoded",
+"display": "Yafa Cafe, 505, State Street, Boerum Hill, Brooklyn, Kings County, New York, 11217, United States"
+},
+"595 Dean": {
+"lat": 40.68076,
+"lon": -73.970132,
+"source": "geocoded",
+"display": "595, Dean Street, Prospect Heights, Brooklyn, Kings County, New York, 11238, United States"
+},
+"The Brooklyner": {
+"lat": 40.6927122,
+"lon": -73.9859514,
+"source": "geocoded",
+"display": "The Brooklyner, 111, Lawrence Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"AVA Fort Greene": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"AVA Dobro": {
+"lat": 40.6915931,
+"lon": -73.9850194,
+"source": "geocoded",
+"display": "AVA DoBro, 100, Willoughby Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"Avalon Willoughby": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"Brooklyn Tower": {
+"lat": 40.690517,
+"lon": -73.9823155,
+"source": "geocoded",
+"display": "The Brooklyn Tower, Fleet Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"City Tower": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"99 Fleet": {
+"lat": 40.690619,
+"lon": -73.9825,
+"source": "geocoded",
+"display": "99, Fleet Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"The Willoughby": {
+"lat": 40.6912361,
+"lon": -73.9798918,
+"source": "geocoded",
+"display": "The Willoughby, Willoughby Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"The Margo": {
+"lat": 40.6931215,
+"lon": -73.9804881,
+"source": "geocoded",
+"display": "The Margo, 180, Myrtle Avenue, Brooklyn, Kings County, New York, 11201, United States"
+},
+"The Eagle": {
+"lat": 40.6931826,
+"lon": -73.9821513,
+"source": "geocoded",
+"display": "The Eagle, 86, Fleet Place, Brooklyn, Kings County, New York, 11201, United States"
+},
+"The Giovanni": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"BKLYN AIR": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"60 Duffield": {
+"lat": 40.6964663,
+"lon": -73.9842322,
+"source": "geocoded",
+"display": "60, Duffield Street, Brooklyn, Kings County, New York, 11201, United States"
+},
+"260 Gold": {
+"lat": 40.6965793,
+"lon": -73.9834664,
+"source": "geocoded",
+"display": "260, Gold Street, Brooklyn, Kings County, New York, 11201, United States"
+},
+"Brooklyn Gold": {
+"lat": 40.690847,
+"lon": -73.9835944,
+"source": "geocoded",
+"display": "RMA of New York, 430, Albee Square, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"22 Chapel": {
+"lat": 40.6970315,
+"lon": -73.9857309,
+"source": "geocoded",
+"display": "22, Chapel Street, Brooklyn, Kings County, New York, 11201, United States"
+},
+"The Amberly": {
+"lat": 40.6980616,
+"lon": -73.9865085,
+"source": "geocoded",
+"display": "The Amberly, 120, Nassau Street, Dumbo, Brooklyn, Kings County, New York, 11201, United States"
+},
+"Amina": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"The Azure": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"7 Dekalb": {
+"lat": 40.6904674,
+"lon": -73.9828639,
+"source": "geocoded",
+"display": "7, DeKalb Avenue, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"11 Hoyt": {
+"lat": 40.6897869,
+"lon": -73.9853461,
+"source": "geocoded",
+"display": "11, Hoyt Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"Hoyt and Horn": {
+"lat": 40.6892466,
+"lon": -73.9856052,
+"source": "geocoded",
+"display": "Hoyt and Horn, Livingston Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11217, United States"
+},
+"The Addison": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"The Paxton": {
+"lat": 40.6888006,
+"lon": -73.9815081,
+"source": "geocoded",
+"display": "The Paxton, 540, Fulton Mall, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"33 Bond Street": {
+"lat": 40.6884781,
+"lon": -73.9835918,
+"source": "geocoded",
+"display": "33, Bond Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11231, United States"
+},
+"The Hub": {
+"lat": 40.6754153,
+"lon": -73.9783171,
+"source": "geocoded",
+"display": "Spoke the Hub, 748, Union Street, Park Slope, Brooklyn, Kings County, New York, 11215, United States"
+},
+"1 Flatbush": {
+"lat": 40.6882763,
+"lon": -73.9801694,
+"source": "geocoded",
+"display": "1, Flatbush Avenue, Downtown Brooklyn, Brooklyn, Kings County, New York, 11217, United States"
+},
+"66 Rockwell": {
+"lat": 40.6880132,
+"lon": -73.9795576,
+"source": "geocoded",
+"display": "66 Rockwell, Fulton Street, Fort Greene, Brooklyn, Kings County, New York, 11207, United States"
+},
+"300 Ashland": {
+"lat": 40.6860631,
+"lon": -73.9784449,
+"source": "geocoded",
+"display": "300, Ashland Place, Fort Greene, Brooklyn, Kings County, New York, 11215, United States"
+},
+"The Lane": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"180 Montague": {
+"lat": 40.6938875,
+"lon": -73.9919346,
+"source": "geocoded",
+"display": "180, Montague Street, Brooklyn, Kings County, New York, 11201, United States"
+},
+"The Axel": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"Signum": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"The Deermar": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"Landmark Park Slope": {
+"lat": 40.6686469,
+"lon": -73.9829078,
+"source": "geocoded",
+"display": "Public School 39, 6th Avenue, Park Slope, Brooklyn, Kings County, New York, 11215, United States"
+},
+"475 Clermont": {
+"lat": 40.68339,
+"lon": -73.9685154,
+"source": "geocoded",
+"display": "475, Clermont Avenue, Fort Greene, Brooklyn, Kings County, New York, 11238, United States"
+},
+"834 Pacific": {
+"lat": 40.6806172,
+"lon": -73.9670182,
+"source": "geocoded",
+"display": "834, Pacific Street, Prospect Heights, Brooklyn, Kings County, New York, 11238, United States"
+},
+"375 Dean St Sigma": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"Denizen": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"Olmsted Park": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"One Park Point": {
+"lat": 40.6501829,
+"lon": -73.9725965,
+"source": "geocoded",
+"display": "One Point Park, 11, Ocean Parkway, Windsor Terrace, Brooklyn, Kings County, New York, 11218, United States"
+},
+"The Highland 有微信群": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"875 4th Ave": {
+"lat": 40.6560985,
+"lon": -74.0021342,
+"source": "geocoded",
+"display": "875, 4th Avenue, Sunset Park, Brooklyn, Kings County, New York, 11232, United States"
+},
+"PLG 123": {
+"lat": 40.6600527,
+"lon": -73.9532648,
+"source": "geocoded",
+"display": "PLG Brooklyn, 499, Rogers Avenue, Flatbush, Brooklyn, Kings County, New York, 11225, United States"
+},
+"One Ocean Drive": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"Avalon Brooklyn Bay": {
+"lat": 40.5864125,
+"lon": -73.953598,
+"source": "geocoded",
+"display": "Avalon Brooklyn Bay, 1501, Voorhies Avenue, Brooklyn, Kings County, New York, 11235, United States"
+},
+"Bridgeview Dumbo": {
+"lat": 40.702144,
+"lon": -73.9883193,
+"source": "geocoded",
+"display": "Bridgeview Dumbo, 69, Adams Street, Dumbo, Brooklyn, Kings County, New York, 11201, United States"
+},
+"One South First": {
+"lat": 40.7159419,
+"lon": -73.966636,
+"source": "geocoded",
+"display": "One South First & Ten Grand, River Street, Brooklyn, Kings County, New York, 11249, United States"
+},
+"House 55": {
+"lat": 40.6526006,
+"lon": -73.9497211,
+"source": "geocoded",
+"display": "Brooklyn, Kings County, New York, United States"
+},
+"Prospect House": {
+"lat": 40.660879,
+"lon": -73.9621353,
+"source": "geocoded",
+"display": "Prospect Park Station House, Lincoln Road, Flatbush, Brooklyn, Kings County, New York, 11225, United States"
+},
+"Bedford Square": {
+"lat": 40.6782,
+"lon": -73.9442,
+"source": "area_fallback",
+"display": "Brooklyn"
+},
+"733 Myrtle Avenue": {
+"lat": 40.694956,
+"lon": -73.953591,
+"source": "geocoded",
+"display": "733, Myrtle Avenue, Brooklyn, Kings County, New York, 11205, United States"
+},
+"The Fleet": {
+"lat": 40.690517,
+"lon": -73.9823155,
+"source": "geocoded",
+"display": "The Brooklyn Tower, Fleet Street, Downtown Brooklyn, Brooklyn, Kings County, New York, 11201, United States"
+},
+"1515 Surf": {
+"lat": 40.5761297,
+"lon": -73.9830534,
+"source": "geocoded",
+"display": "1515 Surf, 1515, Surf Avenue, Coney Island, Brooklyn, Kings County, New York, 11224, United States"
+},
+"Aire": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"170 Amsterdam": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Stonehenge 70": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"The Larstrand": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Parc Cameron": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"The Montana": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"The Sagamore": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Stonehenge Tower": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"James Marquis": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Greystone": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"70 W 93 & 50 W 93": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"West Side Marquis": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Melar": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Windermere": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Central Park Apartments": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Lyric": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Central Park Gardens": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"266 West 96th": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"West 96 / Westmont": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Columbus Square": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"PWV": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"The Paris 有微信群": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Hudson Park": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Hotel 99 有微信群": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Midway Hotel": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Whitehall": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"915 West End": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Coso": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Avalon Morningside": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"601 W 110": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"1080 Amsterdam": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"30 Morningside": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Enclave": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Monarch Heights": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"The Smile": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"224 W 124": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Victoria Tower": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Vandewater": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"45 Tiemann Pl": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"1440 Amsterdam": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"3333 Broadway": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Sunrose Tower": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"4650 Broadway": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Inwood Living (3880 9th Ave)": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"1975 Madison Avenue": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Miramar": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Sophia": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"The Danby": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"303 1st Avenue 有微信群": {
+"lat": 40.7178,
+"lon": -74.0431,
+"source": "area_fallback",
+"display": "Jersey City (NJ)"
+},
+"Stonehenge Tower/ Stonehenge 77": {
+"lat": 40.8025,
+"lon": -73.9666,
+"source": "area_fallback",
+"display": "Columbia / UWS"
+},
+"Starline Tower": {
+"lat": 40.7549,
+"lon": -73.984,
+"source": "area_fallback",
+"display": "Manhattan Midtown"
+}
+}

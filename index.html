@@ -152,7 +152,23 @@
       .controls { padding: 10px 14px; }
       .grid { padding: 12px; gap: 10px; }
     }
+
+    #leafletMap { height: calc(100vh - 158px); min-height: 420px; width: 100%; }
+    .map-legend {
+      position: absolute; bottom: 18px; left: 10px; z-index: 500;
+      background: rgba(255,255,255,0.95); border-radius: 8px; padding: 8px 12px;
+      font-size: 11px; box-shadow: 0 1px 6px rgba(0,0,0,0.15); line-height: 1.9;
+    }
+    .legend-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
+    .popup-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .popup-fee { font-size: 11px; color: #555; margin-bottom: 6px; }
+    .popup-nearby-title { font-size: 10px; color: #999; margin: 8px 0 3px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .popup-nearby-item { font-size: 11px; color: #444; padding: 2px 0; cursor: pointer; }
+    .popup-nearby-item:hover { color: #4a7fd4; }
+    .popup-approx { font-size: 10px; color: #bf6a00; margin-top: 4px; }
+    .leaflet-popup-content { margin: 10px 12px; min-width: 190px; }
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -165,6 +181,7 @@
 <nav class="tabs">
   <button class="tab-btn active" data-view="buildings">大楼信息库</button>
   <button class="tab-btn" data-view="info">资讯库</button>
+  <button class="tab-btn" data-view="map">地图</button>
 </nav>
 
 <div id="view-buildings">
@@ -197,6 +214,25 @@
 
   <div class="grid" id="infoGrid">
     <div class="loading">加载中...</div>
+  </div>
+</div>
+
+<div id="view-map" style="display:none">
+  <div class="controls">
+    <input class="search-input" id="mapSearch" placeholder="搜索大楼名称，跳到地图位置..." autocomplete="off" />
+    <select class="area-select" id="mapAreaFilter">
+      <option value="">全部区域</option>
+      <option value="NJ">NJ（新泽西）</option>
+      <option value="Manhattan">Manhattan（曼哈顿）</option>
+      <option value="LIC">LIC（长岛市）</option>
+      <option value="Brooklyn">Brooklyn（布鲁克林）</option>
+      <option value="Queens">Queens（皇后区）</option>
+    </select>
+    <span class="count" id="mapCount"></span>
+  </div>
+  <div style="position:relative;">
+    <div id="leafletMap"></div>
+    <div class="map-legend" id="mapLegend"></div>
   </div>
 </div>
 
@@ -256,6 +292,10 @@
     btn.addEventListener('click', tryLogin);
     input.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
   })();
+
+  const AREA_COLOR = {
+    NJ: '#2e7d32', Manhattan: '#1565c0', LIC: '#bf360c', Brooklyn: '#6a1b9a', Queens: '#880e4f'
+  };
 
   const SHEET_ID = '1Q2kfu2okYabIyErTQPij8qdCjCFS4Z3iEk9Mgo2umMk';
   const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv`;
@@ -450,7 +490,7 @@
   document.getElementById('search').addEventListener('input', filter);
   document.getElementById('areaFilter').addEventListener('change', filter);
 
-  load();
+  const buildingsLoadPromise = load();
 
   // ---- 资讯库 ----
   const INFO_SHEET_ID = '1ohOTxnK-xV4j_CkS9Ad9qWwVuGN5pqs9KrkBLURpYQ8';
@@ -529,9 +569,143 @@
       const view = btn.dataset.view;
       document.getElementById('view-buildings').style.display = view === 'buildings' ? '' : 'none';
       document.getElementById('view-info').style.display = view === 'info' ? '' : 'none';
+      document.getElementById('view-map').style.display = view === 'map' ? '' : 'none';
       if (view === 'info' && !infoLoaded) loadInfo();
+      if (view === 'map') initOrRefreshMap();
     });
   });
+
+  // ---- 地图 ----
+  const COORDS_URL = 'coords.json';
+  let leafletMap = null;
+  let markerLayer = null;
+  let coordsData = null;
+  let mapBuildings = []; // buildings that have coords, with lat/lon/name/area attached
+  let mapInited = false;
+
+  function haversineMiles(lat1, lon1, lat2, lon2) {
+    const R = 3958.8;
+    const toRad = d => d * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1), dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+    return R * 2 * Math.asin(Math.sqrt(a));
+  }
+
+  function parseManualCoord(b) {
+    const raw = (b['坐标'] || '').trim();
+    if (!raw) return null;
+    const parts = raw.split(',').map(s => parseFloat(s.trim()));
+    if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) return { lat: parts[0], lon: parts[1] };
+    return null;
+  }
+
+  async function loadCoords() {
+    if (coordsData) return coordsData;
+    const resp = await fetch(COORDS_URL);
+    coordsData = resp.ok ? await resp.json() : {};
+    return coordsData;
+  }
+
+  function buildingPopupHTML(b) {
+    const area = b['区域'] || '';
+    const fee = b['费用'] || b['设施费'] || '';
+    const maps = b['Google Maps'] || '';
+    const nearby = mapBuildings
+      .filter(x => x.name !== b['大楼名称'])
+      .map(x => ({ ...x, dist: haversineMiles(b._lat, b._lon, x.lat, x.lon) }))
+      .filter(x => x.dist <= 0.4)
+      .sort((a, c) => a.dist - c.dist)
+      .slice(0, 6);
+
+    return `
+      <div class="popup-name">${esc(b['大楼名称'] || '')}</div>
+      <span class="tag-area tag-${area}" style="display:inline-block;margin-bottom:6px;">${area}</span>
+      ${fee ? `<div class="popup-fee">${esc(fee.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')).slice(0, 80)}</div>` : ''}
+      ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
+      ${b._approx ? `<div class="popup-approx">⚠️ 座标为区域概略位置，非精准门牌</div>` : ''}
+      ${nearby.length ? `
+        <div class="popup-nearby-title">附近 500E 库存（${nearby.length}）</div>
+        ${nearby.map(n => `<div class="popup-nearby-item" data-goto="${esc(n.name)}">${esc(n.name)} · ${n.dist < 0.1 ? '同一带' : n.dist.toFixed(2) + ' mi'}</div>`).join('')}
+      ` : ''}
+    `;
+  }
+
+  function renderLegend() {
+    const legend = document.getElementById('mapLegend');
+    legend.innerHTML = Object.entries(AREA_COLOR).map(([area, color]) =>
+      `<div><span class="legend-dot" style="background:${color}"></span>${area}</div>`
+    ).join('');
+  }
+
+  function plotMarkers(areaFilterVal) {
+    if (markerLayer) markerLayer.clearLayers();
+    else markerLayer = L.layerGroup().addTo(leafletMap);
+
+    const nameToBuilding = {};
+    allBuildings.forEach(b => nameToBuilding[b['大楼名称']] = b);
+
+    mapBuildings = [];
+    Object.values(nameToBuilding).forEach(b => {
+      const manual = parseManualCoord(b);
+      const geo = coordsData[b['大楼名称']];
+      let lat, lon, approx = false;
+      if (manual) { lat = manual.lat; lon = manual.lon; }
+      else if (geo) { lat = geo.lat; lon = geo.lon; approx = geo.source === 'area_fallback'; }
+      else return;
+      b._lat = lat; b._lon = lon; b._approx = approx;
+      mapBuildings.push({ name: b['大楼名称'], area: b['区域'], lat, lon });
+    });
+
+    let count = 0;
+    mapBuildings.forEach(({ name }) => {
+      const b = nameToBuilding[name];
+      if (areaFilterVal && b['区域'] !== areaFilterVal) return;
+      const color = AREA_COLOR[b['区域']] || '#888';
+      const marker = L.circleMarker([b._lat, b._lon], {
+        radius: 7, color: '#fff', weight: 1.5, fillColor: color, fillOpacity: b._approx ? 0.55 : 0.9
+      }).bindPopup(() => buildingPopupHTML(b));
+      marker.buildingName = name;
+      marker.on('popupopen', () => {
+        document.querySelectorAll('.popup-nearby-item').forEach(el => {
+          el.addEventListener('click', () => flyToBuilding(el.dataset.goto));
+        });
+      });
+      marker.addTo(markerLayer);
+      count++;
+    });
+    document.getElementById('mapCount').textContent = `${count} 棟已定位`;
+  }
+
+  function flyToBuilding(name) {
+    const target = mapBuildings.find(x => x.name === name);
+    if (!target) return;
+    leafletMap.flyTo([target.lat, target.lon], 16, { duration: 0.6 });
+    markerLayer.eachLayer(m => { if (m.buildingName === name) setTimeout(() => m.openPopup(), 650); });
+  }
+
+  async function initOrRefreshMap() {
+    if (!mapInited) {
+      leafletMap = L.map('leafletMap').setView([40.74, -73.97], 11);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19, attribution: '© OpenStreetMap contributors'
+      }).addTo(leafletMap);
+      renderLegend();
+      await Promise.all([loadCoords(), buildingsLoadPromise]);
+      plotMarkers(document.getElementById('mapAreaFilter').value);
+      mapInited = true;
+
+      document.getElementById('mapAreaFilter').addEventListener('change', e => plotMarkers(e.target.value));
+      document.getElementById('mapSearch').addEventListener('input', e => {
+        const q = e.target.value.trim().toLowerCase();
+        if (!q) return;
+        const hit = mapBuildings.find(x => x.name.toLowerCase().includes(q));
+        if (hit) flyToBuilding(hit.name);
+      });
+    } else {
+      setTimeout(() => leafletMap.invalidateSize(), 50);
+    }
+  }
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
 </html>
