@@ -614,6 +614,11 @@
     return coordsData;
   }
 
+  const STATUS_NOTE = {
+    geocoded: '<div class="popup-approx">⚠️ 座标为系统自动定位，可能抓到同名但地点不同的结果，请自行到 Google Maps 核对</div>',
+    area_fallback: '<div class="popup-approx">⚠️ 座标仅为区域概略位置，非精准门牌，请自行到 Google Maps 核对</div>',
+  };
+
   function buildingPopupHTML(b) {
     const area = b['区域'] || '';
     const fee = b['费用'] || b['设施费'] || '';
@@ -630,7 +635,7 @@
       <span class="tag-area tag-${area}" style="display:inline-block;margin-bottom:6px;">${area}</span>
       ${fee ? `<div class="popup-fee">${esc(fee.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')).slice(0, 80)}</div>` : ''}
       ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
-      ${b._approx ? `<div class="popup-approx">⚠️ 座标为区域概略位置，非精准门牌</div>` : ''}
+      ${STATUS_NOTE[b._status] || ''}
       ${nearby.length ? `
         <div class="popup-nearby-title">附近 500E 库存（${nearby.length}）</div>
         ${nearby.map(n => `<div class="popup-nearby-item" data-goto="${esc(n.name)}">${esc(n.name)} · ${n.dist < 0.1 ? '同一带' : n.dist.toFixed(2) + ' mi'}</div>`).join('')}
@@ -638,11 +643,17 @@
     `;
   }
 
+  const MARKER_STYLE = {
+    manual:        { fillOpacity: 0.95, weight: 1.5, dashArray: null },
+    geocoded:      { fillOpacity: 0.75, weight: 1.5, dashArray: '2,2' },
+    area_fallback: { fillOpacity: 0.4,  weight: 1.5, dashArray: '2,2' },
+  };
+
   function renderLegend() {
     const legend = document.getElementById('mapLegend');
     legend.innerHTML = Object.entries(AREA_COLOR).map(([area, color]) =>
       `<div><span class="legend-dot" style="background:${color}"></span>${area}</div>`
-    ).join('');
+    ).join('') + `<div style="margin-top:4px;border-top:1px solid #eee;padding-top:4px;">虚线框 = 未人工确认，建议核对</div>`;
   }
 
   function plotMarkers(areaFilterVal) {
@@ -656,21 +667,23 @@
     Object.values(nameToBuilding).forEach(b => {
       const manual = parseManualCoord(b);
       const geo = coordsData[b['大楼名称']];
-      let lat, lon, approx = false;
-      if (manual) { lat = manual.lat; lon = manual.lon; }
-      else if (geo) { lat = geo.lat; lon = geo.lon; approx = geo.source === 'area_fallback'; }
+      let lat, lon, status;
+      if (manual) { lat = manual.lat; lon = manual.lon; status = 'manual'; }
+      else if (geo) { lat = geo.lat; lon = geo.lon; status = geo.source === 'area_fallback' ? 'area_fallback' : 'geocoded'; }
       else return;
-      b._lat = lat; b._lon = lon; b._approx = approx;
+      b._lat = lat; b._lon = lon; b._status = status;
       mapBuildings.push({ name: b['大楼名称'], area: b['区域'], lat, lon });
     });
 
-    let count = 0;
+    let count = 0, manualCount = 0;
     mapBuildings.forEach(({ name }) => {
       const b = nameToBuilding[name];
       if (areaFilterVal && b['区域'] !== areaFilterVal) return;
       const color = AREA_COLOR[b['区域']] || '#888';
+      const style = MARKER_STYLE[b._status];
       const marker = L.circleMarker([b._lat, b._lon], {
-        radius: 7, color: '#fff', weight: 1.5, fillColor: color, fillOpacity: b._approx ? 0.55 : 0.9
+        radius: 7, color: '#fff', weight: style.weight, fillColor: color,
+        fillOpacity: style.fillOpacity, dashArray: style.dashArray
       }).bindPopup(() => buildingPopupHTML(b));
       marker.buildingName = name;
       marker.on('popupopen', () => {
@@ -683,8 +696,9 @@
       });
       marker.addTo(markerLayer);
       count++;
+      if (b._status === 'manual') manualCount++;
     });
-    document.getElementById('mapCount').textContent = `${count} 棟已定位`;
+    document.getElementById('mapCount').textContent = `${count} 棟已定位 · ${manualCount} 棟已人工确认`;
   }
 
   function goToBuildingCard(name) {
