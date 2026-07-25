@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>反馈错误 - 500E 大楼信息库</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white; padding: 24px 20px 20px; text-align: center;
+  }
+  header h1 { font-size: 1.2rem; font-weight: 600; }
+  header p { font-size: 0.8rem; opacity: 0.6; margin-top: 6px; }
+  .wrap { max-width: 480px; margin: 24px auto; padding: 0 16px; }
+  .box { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+  label { display: block; font-size: 12px; color: #888; margin: 14px 0 6px; }
+  label:first-child { margin-top: 0; }
+  input, select, textarea {
+    width: 100%; padding: 10px 12px; border: 1.5px solid #e0e0e0; border-radius: 8px;
+    font-size: 14px; outline: none; font-family: inherit;
+  }
+  input:focus, select:focus, textarea:focus { border-color: #4a7fd4; }
+  textarea { min-height: 110px; resize: vertical; }
+  .building-name { font-size: 15px; font-weight: 700; padding: 10px 12px; background: #f0f5ff; border-radius: 8px; color: #1a1a2e; }
+  button {
+    width: 100%; margin-top: 18px; padding: 12px; background: #1a1a2e; color: white;
+    border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 600;
+  }
+  button:hover { background: #2a2a4e; }
+  button:disabled { background: #ccc; cursor: not-allowed; }
+  .msg { text-align: center; padding: 40px 16px; }
+  .msg h2 { font-size: 1.1rem; margin-bottom: 8px; }
+  .msg p { color: #888; font-size: 13px; }
+  .back-link { display: inline-block; margin-top: 18px; font-size: 13px; color: #4a7fd4; text-decoration: none; }
+  .err { color: #e53935; font-size: 12px; margin-top: 10px; display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🚩 反馈错误 / 信息更新</h1>
+  <p>提交后会直接通知 Poyi，不用私讯</p>
+</header>
+
+<div class="wrap">
+  <div class="box" id="formBox">
+    <label>大楼名称</label>
+    <div class="building-name" id="buildingName">—</div>
+
+    <label>问题类型</label>
+    <select id="type">
+      <option value="费用/价格有误">费用 / 价格有误</option>
+      <option value="政策/条款异动">政策 / 条款异动</option>
+      <option value="地址或座标错误">地址或座标错误</option>
+      <option value="连结失效">连结失效（Google Maps / 视频库 / 官网）</option>
+      <option value="资料已过时">资料已过时，需要更新</option>
+      <option value="其他">其他</option>
+    </select>
+
+    <label>详细说明</label>
+    <textarea id="message" placeholder="哪里不对、正确的资讯是什么（如果知道的话）..."></textarea>
+
+    <label>你的名字（可留空）</label>
+    <input id="reporter" placeholder="方便 Poyi 有问题回头找你确认" />
+
+    <button id="submitBtn" onclick="submitFeedback()">提交</button>
+    <div class="err" id="err">提交失败，请稍后再试，或直接跟 Poyi 说一声</div>
+  </div>
+
+  <div class="box msg" id="doneBox" style="display:none">
+    <h2>✅ 已送出</h2>
+    <p>Poyi 会收到通知，谢谢你帮忙抓错！</p>
+    <a class="back-link" href="index.html">← 回大楼信息库</a>
+  </div>
+</div>
+
+<script>
+  // 部署 Apps Script 后把网址贴在这里（结尾是 /exec）
+  const APPS_SCRIPT_URL = '';
+
+  const params = new URLSearchParams(location.search);
+  const building = params.get('building') || '未指定大楼';
+  document.getElementById('buildingName').textContent = building;
+
+  async function submitFeedback() {
+    const btn = document.getElementById('submitBtn');
+    const err = document.getElementById('err');
+    err.style.display = 'none';
+
+    if (!APPS_SCRIPT_URL) {
+      err.textContent = '反馈功能还没接好，先直接跟 Poyi 说一声';
+      err.style.display = 'block';
+      return;
+    }
+
+    const payload = {
+      building,
+      type: document.getElementById('type').value,
+      message: document.getElementById('message').value.trim(),
+      reporter: document.getElementById('reporter').value.trim()
+    };
+    if (!payload.message) {
+      err.textContent = '麻烦简单写一下是什么问题';
+      err.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '送出中...';
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      document.getElementById('formBox').style.display = 'none';
+      document.getElementById('doneBox').style.display = 'block';
+    } catch (e) {
+      err.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = '提交';
+    }
+  }
+</script>
+</body>
+</html>
