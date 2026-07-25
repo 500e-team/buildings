@@ -161,6 +161,8 @@
     }
     .legend-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
     .popup-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .popup-name-link { cursor: pointer; color: #1a1a2e; }
+    .popup-name-link:hover { color: #4a7fd4; text-decoration: underline; }
     .popup-fee { font-size: 11px; color: #555; margin-bottom: 6px; }
     .popup-nearby-title { font-size: 10px; color: #999; margin: 8px 0 3px; text-transform: uppercase; letter-spacing: 0.4px; }
     .popup-nearby-item { font-size: 11px; color: #444; padding: 2px 0; cursor: pointer; }
@@ -618,7 +620,7 @@
       .slice(0, 6);
 
     return `
-      <div class="popup-name">${esc(b['大楼名称'] || '')}</div>
+      <div class="popup-name popup-name-link" data-goto-detail="${esc(b['大楼名称'] || '')}">${esc(b['大楼名称'] || '')} →</div>
       <span class="tag-area tag-${area}" style="display:inline-block;margin-bottom:6px;">${area}</span>
       ${fee ? `<div class="popup-fee">${esc(fee.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')).slice(0, 80)}</div>` : ''}
       ${maps ? `<a class="map-link" href="${maps}" target="_blank" rel="noopener">📍 Google Maps</a>` : ''}
@@ -669,11 +671,24 @@
         document.querySelectorAll('.popup-nearby-item').forEach(el => {
           el.addEventListener('click', () => flyToBuilding(el.dataset.goto));
         });
+        document.querySelectorAll('.popup-name-link').forEach(el => {
+          el.addEventListener('click', () => goToBuildingCard(el.dataset.gotoDetail));
+        });
       });
       marker.addTo(markerLayer);
       count++;
     });
     document.getElementById('mapCount').textContent = `${count} 棟已定位`;
+  }
+
+  function goToBuildingCard(name) {
+    document.querySelector('.tab-btn[data-view="buildings"]').click();
+    const search = document.getElementById('search');
+    search.value = name;
+    filter();
+    requestAnimationFrame(() => {
+      document.querySelector('#grid .card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   }
 
   function flyToBuilding(name) {
