@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>反馈错误 - 500E 大楼信息库</title>
+<title>反馈 - 500E 大楼信息库</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
@@ -22,8 +22,7 @@
     font-size: 14px; outline: none; font-family: inherit;
   }
   input:focus, select:focus, textarea:focus { border-color: #4a7fd4; }
-  textarea { min-height: 110px; resize: vertical; }
-  .building-name { font-size: 15px; font-weight: 700; padding: 10px 12px; background: #f0f5ff; border-radius: 8px; color: #1a1a2e; }
+  textarea { min-height: 90px; resize: vertical; }
   button {
     width: 100%; margin-top: 18px; padding: 12px; background: #1a1a2e; color: white;
     border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 600;
@@ -35,32 +34,76 @@
   .msg p { color: #888; font-size: 13px; }
   .back-link { display: inline-block; margin-top: 18px; font-size: 13px; color: #4a7fd4; text-decoration: none; }
   .err { color: #e53935; font-size: 12px; margin-top: 10px; display: none; }
+
+  .mode-tabs { display: flex; gap: 8px; margin-bottom: 4px; }
+  .mode-btn {
+    flex: 1; padding: 10px; border: 1.5px solid #e0e0e0; border-radius: 8px; background: #fafafa;
+    font-size: 13px; font-weight: 600; color: #999; cursor: pointer; text-align: center;
+  }
+  .mode-btn.active { border-color: #4a7fd4; background: #f0f5ff; color: #1a1a2e; }
+  .hint { font-size: 11.5px; color: #aaa; margin-top: 6px; line-height: 1.5; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🚩 反馈错误 / 信息更新</h1>
+  <h1>🚩 反馈错误 / 补充资料</h1>
   <p>提交后会直接通知 Poyi，不用私讯</p>
 </header>
 
 <div class="wrap">
   <div class="box" id="formBox">
+    <div class="mode-tabs">
+      <div class="mode-btn" id="modeErrBtn" onclick="setMode('error')">反馈现有资料错误</div>
+      <div class="mode-btn" id="modeAddBtn" onclick="setMode('add')">新增 / 补充资料</div>
+    </div>
+
     <label>大楼名称</label>
-    <div class="building-name" id="buildingName">—</div>
+    <input id="buildingName" placeholder="打大楼名称（新楼盘也可以直接打）" />
+    <div class="hint" id="buildingHint"></div>
 
-    <label>问题类型</label>
-    <select id="type">
-      <option value="费用/价格有误">费用 / 价格有误</option>
-      <option value="政策/条款异动">政策 / 条款异动</option>
-      <option value="地址或座标错误">地址或座标错误</option>
-      <option value="连结失效">连结失效（Google Maps / 视频库 / 官网）</option>
-      <option value="资料已过时">资料已过时，需要更新</option>
-      <option value="其他">其他</option>
-    </select>
+    <div id="errorFields">
+      <label>问题类型</label>
+      <select id="type">
+        <option value="费用/价格有误">费用 / 价格有误</option>
+        <option value="政策/条款异动">政策 / 条款异动</option>
+        <option value="地址或座标错误">地址或座标错误</option>
+        <option value="连结失效">连结失效（Google Maps / 视频库 / 官网）</option>
+        <option value="资料已过时">资料已过时，需要更新</option>
+        <option value="其他">其他</option>
+      </select>
 
-    <label>详细说明</label>
-    <textarea id="message" placeholder="哪里不对、正确的资讯是什么（如果知道的话）..."></textarea>
+      <label>详细说明</label>
+      <textarea id="message" placeholder="哪里不对、正确的资讯是什么（如果知道的话）..."></textarea>
+    </div>
+
+    <div id="addFields" style="display:none">
+      <label>区域</label>
+      <select id="area">
+        <option value="">未指定</option>
+        <option value="NJ">NJ（新泽西）</option>
+        <option value="Manhattan">Manhattan（曼哈顿）</option>
+        <option value="LIC">LIC（长岛市）</option>
+        <option value="Brooklyn">Brooklyn（布鲁克林）</option>
+        <option value="Queens">Queens（皇后区）</option>
+      </select>
+
+      <label>费用</label>
+      <textarea id="fee" placeholder="押金、设施费、宠物费等..." style="min-height:60px"></textarea>
+
+      <label>大楼简介</label>
+      <textarea id="notes" placeholder="户型、设施、申请注意事项等..." style="min-height:80px"></textarea>
+
+      <label>Google Maps 连结</label>
+      <input id="mapsLink" placeholder="https://..." />
+
+      <label>视频库 / 官网连结（可留空）</label>
+      <input id="videoLink" placeholder="视频库连结 https://..." />
+      <input id="websiteLink" placeholder="官网连结 https://..." style="margin-top:8px" />
+
+      <label>其他补充（可留空）</label>
+      <textarea id="addNote" placeholder="任何想额外说明的..." style="min-height:60px"></textarea>
+    </div>
 
     <label>你的名字（可留空）</label>
     <input id="reporter" placeholder="方便 Poyi 有问题回头找你确认" />
@@ -71,7 +114,7 @@
 
   <div class="box msg" id="doneBox" style="display:none">
     <h2>✅ 已送出</h2>
-    <p>Poyi 会收到通知，谢谢你帮忙抓错！</p>
+    <p>Poyi 会收到通知，谢谢你帮忙更新资料！</p>
     <a class="back-link" href="index.html">← 回大楼信息库</a>
   </div>
 </div>
@@ -81,13 +124,34 @@
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJy05qpXzev9J5_f2prNmurUYTNvmRTk3AKdCxy8lMyfxn5e7tmbjnVbZnGkstEFoT/exec';
 
   const params = new URLSearchParams(location.search);
-  const building = params.get('building') || '未指定大楼';
-  document.getElementById('buildingName').textContent = building;
+  const prefilledBuilding = params.get('building') || '';
+  document.getElementById('buildingName').value = prefilledBuilding;
+
+  let mode = prefilledBuilding ? 'error' : 'add';
+
+  function setMode(m) {
+    mode = m;
+    document.getElementById('modeErrBtn').classList.toggle('active', m === 'error');
+    document.getElementById('modeAddBtn').classList.toggle('active', m === 'add');
+    document.getElementById('errorFields').style.display = m === 'error' ? '' : 'none';
+    document.getElementById('addFields').style.display = m === 'add' ? '' : 'none';
+    document.getElementById('buildingHint').textContent = m === 'add'
+      ? '如果是已经在库里但资料是空的楼盘，打一样的名字就行；全新楼盘直接打新名字。'
+      : '';
+  }
+  setMode(mode);
 
   async function submitFeedback() {
     const btn = document.getElementById('submitBtn');
     const err = document.getElementById('err');
     err.style.display = 'none';
+
+    const building = document.getElementById('buildingName').value.trim();
+    if (!building) {
+      err.textContent = '麻烦打一下大楼名称';
+      err.style.display = 'block';
+      return;
+    }
 
     if (!APPS_SCRIPT_URL) {
       err.textContent = '反馈功能还没接好，先直接跟 Poyi 说一声';
@@ -95,16 +159,39 @@
       return;
     }
 
-    const payload = {
-      building,
-      type: document.getElementById('type').value,
-      message: document.getElementById('message').value.trim(),
-      reporter: document.getElementById('reporter').value.trim()
-    };
-    if (!payload.message) {
-      err.textContent = '麻烦简单写一下是什么问题';
-      err.style.display = 'block';
-      return;
+    let payload;
+    if (mode === 'error') {
+      const message = document.getElementById('message').value.trim();
+      if (!message) {
+        err.textContent = '麻烦简单写一下是什么问题';
+        err.style.display = 'block';
+        return;
+      }
+      payload = {
+        mode: '反馈错误',
+        building,
+        type: document.getElementById('type').value,
+        message,
+        reporter: document.getElementById('reporter').value.trim()
+      };
+    } else {
+      payload = {
+        mode: '新增/补充资料',
+        building,
+        area: document.getElementById('area').value,
+        fee: document.getElementById('fee').value.trim(),
+        notes: document.getElementById('notes').value.trim(),
+        mapsLink: document.getElementById('mapsLink').value.trim(),
+        videoLink: document.getElementById('videoLink').value.trim(),
+        websiteLink: document.getElementById('websiteLink').value.trim(),
+        message: document.getElementById('addNote').value.trim(),
+        reporter: document.getElementById('reporter').value.trim()
+      };
+      if (!payload.fee && !payload.notes && !payload.mapsLink && !payload.videoLink && !payload.websiteLink && !payload.message) {
+        err.textContent = '至少填一项资料内容';
+        err.style.display = 'block';
+        return;
+      }
     }
 
     btn.disabled = true;
